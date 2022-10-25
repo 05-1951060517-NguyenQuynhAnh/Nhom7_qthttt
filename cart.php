@@ -119,7 +119,8 @@
                                     </svg>
                                     <p class="pt-1" style="font-size:13px"><?php
                                             
-                                            $conn = mysqli_connect('localhost','root','','cse481');
+                                            $conn = mysqli_connect('localhost','root','','demo_banquanao');
+                                            mysqli_set_charset($conn, 'UTF8');
                                             if(!$conn){
                                                 die("Kết nối thất bại. Vui lòng kiểm tra lại các thông tin máy chủ");
                                             }
@@ -258,7 +259,8 @@
 
                             <p class="ms-2"><?php
                 
-                $conn = mysqli_connect('localhost','root','','cse481');
+                $conn = mysqli_connect('localhost','root','','demo_banquanao');
+                mysqli_set_charset($conn, 'UTF8');
                 if(!$conn){
                     die("Kết nối thất bại. Vui lòng kiểm tra lại các thông tin máy chủ");
                 }
@@ -282,11 +284,11 @@
                             <p>Tổng tiền: </p>
 
                             <p style="color:red" class="ms-2"><?php
-                
-                $conn = mysqli_connect('localhost','root','','cse481');
-                if(!$conn){
-                    die("Kết nối thất bại. Vui lòng kiểm tra lại các thông tin máy chủ");
-                }
+               $conn = mysqli_connect('localhost','root','','demo_banquanao');
+               mysqli_set_charset($conn, 'UTF8');
+               if(!$conn){
+                   die("Kết nối thất bại. Vui lòng kiểm tra lại các thông tin máy chủ");
+               }
                 // Bước 02: Thực hiện truy vấn
                 $sql2 = "SELECT sum(giohang.soluong*sanpham.Giaban) as tongtien FROM khachhang,giohang INNER JOIN sanpham ON sanpham.MaSP = giohang.MaSP WHERE khachhang.MaK='$id' ";
                 $result2 = mysqli_query($conn,$sql2);
